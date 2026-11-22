@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: mediconnect
+  datasource:
+    url: jdbc:postgresql://localhost:5432/mediconnect_db
+    username: postgres
+    password: "9153"
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:bWVkaWNvbm5lY3RTZWNyZXRLZXlGb3JKV1RBdXRoZW50aWNhdGlvbjIwMjZTZWN1cmU=}
+    expiration-ms: 86400000
+  notification:
+    url: ${NOTIFICATION_SERVICE_URL:http://localhost:5000}
